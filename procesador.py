@@ -1,13 +1,23 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from pydantic import BaseModel
 
 app = FastAPI()
 
-class Entrada(BaseModel):
+class EntradaTexto(BaseModel):
     texto: str
-    repetir: bool = False
+    repetir: bool
 
 @app.post("/procesar_texto")
-async def procesar_texto(data: Entrada):
-    resultado = data.texto.upper() if data.repetir else data.texto.lower()
+def procesar_texto(datos: EntradaTexto):
+    resultado = datos.texto.upper() if datos.repetir else datos.texto
     return {"resultado": resultado}
+
+# Nuevo modelo para la suma
+class Numeros(BaseModel):
+    a: float
+    b: float
+
+@app.post("/sumar")
+def sumar_numeros(datos: Numeros):
+    resultado = datos.a + datos.b
+    return {"suma": resultado}
