@@ -1,7 +1,7 @@
 fastapi
-uvicorn
+uvicorn[standard]
 pandas
-spacy
 openpyxl
 python-multipart
-https://github.com/explosion/spacy-models/releases/download/es_core_news_lg-3.7.0/es_core_news_lg-3.7.0.tar.gz
+spacy==3.7.5
+https://github.com/explosion/spacy-models/releases/download/es_core_news_sm-3.7.1/es_core_news_sm-3.7.1-py3-none-any.whl

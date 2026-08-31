@@ -5,7 +5,7 @@ import spacy
 app = FastAPI()
 
 # Cargar modelo grande de spaCy con vectores
-nlp = spacy.load("es_core_news_lg")
+nlp = spacy.load("es_core_news_sm")
 
 @app.post("/analizar_excel")
 async def analizar_excel(archivo: UploadFile = File(...)):
